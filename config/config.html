@@ -9,14 +9,14 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Type</th>
+          <th>Label</th>
           <th>Path</th>
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="(key, value) in config">
+        <tr ng-repeat="(key, path) in config">
           <td>[[ key ]]</td>
-          <td>[[ value ]]</td>
+          <td>[[ path ]]</td>
           <td class="remove">
             <span class="clickable" ng-click="del(key)">
               <i class="icon-remove" alt="remove"></i>
@@ -24,9 +24,55 @@
           </td>
         </tr>
         <tr>
-          <td><input ng-model="newkey" placeholder="New Key" type="text"></td>
-          <td><input ng-model="newvalue" placeholder="New Value" type="text"></td>
+          <td colspan="2">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Header Key</th>
+                  <th>File Key</th>
+                  <th>Item Key</th>
+                  <th>Severity Key</th>
+                  <th>Line Key</th>
+                  <th>Column Key</th>
+                  <th>Message Key</th>
+                  <th>Reason Key</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="(header, file, item, severity, line, column, message, reason) in config">
+                  <td>[[ header ]]</td>
+                  <td>[[ file ]]</td>
+                  <td>[[ item ]]</td>
+                  <td>[[ severity ]]</td>
+                  <td>[[ line ]]</td>
+                  <td>[[ column ]]</td>
+                  <td>[[ message ]]</td>
+                  <td>[[ reason ]]</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td><input ng-model="newkey" placeholder="New Label" type="text"></td>
+          <td><input ng-model="newvalue" placeholder="New Path" type="text"></td>
           <td><button ng-click="add()" class="btn btn-success">Add</button></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table class="table">
+              <tbody>
+                <td><input ng-model="newheader" placeholder="Header Key" type="text"></td>
+                <td><input ng-model="newfile" placeholder="File Key" type="text"></td>
+                <td><input ng-model="newitem" placeholder="Item Key" type="text"></td>
+                <td><input ng-model="newseverity" placeholder="Severity Key" type="text"></td>
+                <td><input ng-model="newline" placeholder="Line Key" type="text"></td>
+                <td><input ng-model="newcolumn" placeholder="Column Key" type="text"></td>
+                <td><input ng-model="newmessage" placeholder="Messages Key" type="text"></td>
+                <td><input ng-model="newreason" placeholder="Reason Key" type="text"></td>
+              </tbody>
+            </table>
+          </td>
         </tr>
       </tbody>
     </table>
